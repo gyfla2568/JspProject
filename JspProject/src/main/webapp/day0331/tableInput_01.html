@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	table {
+	border: 2px solid gray;
+	
+	width: 500px;
+	
+}
+tr,th,td{
+	border: 1px dotted gray;
+	font-size: 10pt;
+}
+</style>
+</head>
+<body>
+<form action="action_01.jsp">
+	<table>
+		<caption>Radio&Check</caption>
+		<!-- radiobox -->
+			<tr height="30">
+				<td>
+					<b>최종학력을 선택하시오</b>
+					<!-- radiobox는 name이 동일해야 한다 -->
+					<input type="radio" name="grade" value="고등학교">
+					고등학교&nbsp; <!-- 한칸띄우기가 &nbsp; -->
+					<input type="radio" name="grade" value="전문대학교">
+					전문대학교 &nbsp;
+					<input type="radio" name="grade" value="4년대학">
+					4년대학 &nbsp;
+					<input type="radio" name="grade" value="대학원">
+					대학원 &nbsp;
+					
+				</td>
+				
+			</tr>
+			
+			<!-- checkbox -->
+			<tr>
+				<td>
+					<b>가능한 프로그램 언어</b>
+					<input type="checkbox" name="lang" value="c언어">
+					c언어 &nbsp;
+					<input type="checkbox" name="lang" value="java언어">
+					java언어 &nbsp;
+					<input type="checkbox" name="lang" value="jsp언어">
+					jsp &nbsp;
+					<input type="checkbox" name="lang" value="spring">
+					spring &nbsp;
+				</td>
+			</tr>
+			<!--file,image -->
+			<tr>
+			<td>
+				<b>이미지 or 파일선택</b>&nbsp;&nbsp;&nbsp;
+				<input type="file" name="file">
+				</td>
+			</tr>
+			<!-- select a,b,c,d반-->
+			<tr>
+				<td>
+					<b>쎄미프로젝트를 가장 잘할 것 같은 조는?</b>
+					<select name="semi">
+						<option value="1조" selected="selected">1조</option>
+						<option value="2조">2조</option>
+						<option value="3조">3조</option>
+						<option value="4조">4조</option>
+					</select>
+					
+					<span id="teamout"></span>
+				</td>
+			</tr>
+			<!-- number -->
+			<tr>
+				<td>
+				<b>당신의 키는 몇cm입니까?</b>&nbsp;&nbsp;
+					<input type="number" name="height" min="150" max="210"
+					value="150" step="2">cm
+				</td>
+			</tr>
+			<tr>
+				<td>
+				<b>당신의 몸무게는 몇kg입니까?</b>&nbsp;&nbsp;
+					<input type="number" name="weight" min="30" max="150"
+					value="60" step="2">kg
+				</td>
+			</tr>
+			
+			<!-- color -->
+			<tr>
+				<td>
+					<b>색상선택</b>&nbsp;&nbsp;
+						<input type="color" name="col">
+				</td>
+			</tr>	
+			<!-- date -->
+			<tr>
+				<td>
+					<b>날짜 선택</b>&nbsp;&nbsp;
+						<input type="date" name="naljja">
+				</td>
+			</tr>
+			
+			<tr>
+				<td align="center">
+					<input type="submit" value="전송">
+					<input type="reset" value="초기화">
+				</td>
+			</tr>
+	</table>
+</form>
+</body>
+</html>
