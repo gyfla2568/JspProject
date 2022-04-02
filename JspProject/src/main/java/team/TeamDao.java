@@ -44,7 +44,7 @@ public class TeamDao {
 	      
 	      Connection conn=db.getConnection();
 	      PreparedStatement pstmt=null;
-	      ResultSet rs=null;
+	      ResultSet rs=null; //값이 돌아와야하기때문
 	      
 	      String sql="select * from team order by num";
 	      

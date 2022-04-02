@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<board>
+	<data id="angel" name="이수연">
+		<subject>안녕 즐거운 금요일입니다</subject>
+		<photo>../img/4.png</photo>
+	</data>
+	<data id="flower" name="정미라">
+		<subject>오늘 만나자</subject>
+		<photo>../img/5.png</photo>
+	</data>
+	<data id="kim" name="김효림">
+		<subject>저의 혈액형은 B형입니다</subject>
+		<photo>../img/6.png</photo>
+	</data>
+	<data id="lee" name="김주찬">
+		<subject>점심메뉴는 뭐로할까</subject>
+		<photo>../img/7.png</photo>
+	</data>
+	<data id="soo" name="배현범">
+		<subject>닐리리</subject>
+		<photo>../img/8.png</photo>
+	</data>
+</board>

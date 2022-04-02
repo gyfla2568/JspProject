@@ -122,6 +122,33 @@ public class MemberDao {
 		}
 		return dto;
 	}
+	//수정
+	public void memberUpdate(MemberDto dto)
+	{
+		Connection conn=db.getConnection();
+		PreparedStatement pstmt=null;
+		String sql="update member set name=?,hp=? where num=?";
+		
+		try {
+			pstmt=conn.prepareStatement(sql);
+			
+			pstmt.setString(1, dto.getName());
+			pstmt.setString(2, dto.getHp());
+			pstmt.setString(3, dto.getNum());
+			
+			pstmt.execute(); //실행해준다
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			db.dbClose(pstmt, conn);
+			 
+		}
+		
+		
+	}
 
 	
 }
