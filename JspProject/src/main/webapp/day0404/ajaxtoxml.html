@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Dokdo&family=East+Sea+Dokdo&family=Gugi&family=Hi+Melody&family=Sunflower:wght@300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<style type="text/css">
+#show{
+	font-family:'Gamja Flower';
+	font-size: 1.3em;
+	margin-top: 30px;
+	
+}
+div.box{
+float: left;
+margin-left: 20px;
+border: 2px solid gray;
+border-radius: 20px;
+
+}
+</style>
+
+</head>
+<body>
+<button type="button" class="btn btn-info" id="btn1">xml데이터를 ajax함수를 통해 읽기</button>
+<div id="show"></div>
+<script type="text/javascript">
+
+$("#btn1").click(function(){
+	$.ajax({
+		
+		type:"get",
+		url:"../day0401/teamtoxml.jsp",
+		dataType: "xml",
+		/*성공했을 때의 콜백함수  */
+		succss:function(data){
+			
+			var s="<h3>XML데이타 읽기</h3>";
+			$(data).find("team").each(function(i,element){
+				//엘리먼트에 해당하는 것을 변수로 잡아준다
+				var n=$(element);
+				//var n=$(this);
+				
+				s+="<div class='alert alert-info box' style='width:300px;'>";
+				s+="번호: "+n.attr("num"+"<br>");
+				s+="이름: "+n.find("name").text()+"<br>";
+				s+="운전면허: "+n.find("driver").text()+"<br>" ;
+				s+="주소: "+n.find("addr").text()+"<br>";
+				s+="작성일: "+n.find("writeday").text();
+				s+="</div>";
+			});
+			
+			$("#show".html)(s);
+		}
+		
+	});
+});
+
+</script>
+</body>
+</html>
