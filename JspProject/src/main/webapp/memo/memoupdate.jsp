@@ -1,5 +1,6 @@
 <%@page import="memo.MemoDto"%>
 <%@page import="memo.MemoDao"%>
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -11,26 +12,28 @@
 </head>
 <body>
 <%
-//dao선언
-MemoDao dao=new MemoDao();
-
 //엔코딩
 request.setCharacterEncoding("utf-8");
 
-//데이터 읽기
-String writer=request.getParameter("writer");
-String content=request.getParameter("content");
-String avatar=request.getParameter("avatar");
+//num,writer,content,avatar
+String num=request.getParameter("unum");
+String writer=request.getParameter("uwriter");
+String content=request.getParameter("ucontent");
+String avatar=request.getParameter("uavatar");
 
-//dto로 묶어주기
+//dto에 넣어주기
 MemoDto dto=new MemoDto();
 
+dto.setNum(num);
 dto.setWriter(writer);
 dto.setContent(content);
 dto.setAvatar(avatar);
 
+//dao선언
+MemoDao dao=new MemoDao();
+
 //insert호출 한번에 dto값을 넘겨준다
-dao.insertMemo(dto);
+dao.updateMemo(dto);
 %>
 
 </body>
