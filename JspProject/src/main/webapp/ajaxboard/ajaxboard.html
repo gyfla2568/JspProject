@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <style type="text/css">
-	div.list,div.detail{
+	div.list,div.detail,div.updateform{
 		position: absolute;
 		left: 100px;
 		top: 100px;
@@ -19,7 +19,7 @@
 		top: 100px;
 		
 	}
-	div.list *,div.writeform *,div.detail *{
+	div.list *,div.writeform *,div.detail *,div.updateform{
 		font-family: 'Dokdo';
 		font-size: 13pt;
 		
@@ -38,6 +38,9 @@ $(function () {
 	
 	//입력폼 처음에 안보이게
 	$("div.writeform").hide();
+	
+	//수정폼 처음에 안보이게
+	$("div.updateform").hide();
 	
 	//글쓰기 버튼 누르면 입력폼 나오게
 	$("#btnwrite").click(function(){
@@ -145,7 +148,71 @@ $(function () {
 		});
 	});
 	
-});
+	//내용보기안의 수정버튼
+$(document).on("click",".btnupdate",function(){
+		
+		//부모태그 td로부터 num가져오기
+		var num=$(this).parent().attr("num");
+		
+		
+		$.ajax({
+			type:"get",
+			url:"detailboard.jsp",
+			dataType:"json",
+			data: {"num":num},
+			success: function(data){
+				
+				
+				//수정폼 태그안에 넣어준다
+				$("#unum").val(data.num); //히든으로 넘겼기에 반드시 줘야함
+				$("#uwriter").val(data.writer);
+				$("#usubject").val(data.subject);
+				$("#ucontent").val(data.content);
+				$("#uavata").val(data.avata);
+				
+				
+				//내용보기가 안보이게
+				$("div.detail").hide();
+				//수정폼이 보이게
+				$("div.updateform").show('fast');
+				
+			}
+			//에러발생원인출력
+			,
+		      error: function(request, error) {
+		         alert("fail!");
+		         // error 발생 원인 출력
+		         alert("code:"+request.status+"\n"+"error message:"+request.responseText+"\n"+"error:"+error);
+		      }
+		});
+	});
+		
+			
+		});
+		//실제수정..db수정버튼 이벤트
+		$("#btnupdate").click(function() {
+			
+			var data=$("#updatefrm").serialize();
+			//alert(data);
+			
+			$.ajax({
+				type:"post",
+				dataType:"html",
+				url:"updateboard.jsp",
+				data:data,
+				success: function () {
+					//수정 성공시 다시 목록으로..
+					list();
+					
+					//현재수정폼 안보이게
+					$("div.updateform").hide();
+					$("div.list").show();
+				}
+			});
+		});
+
+
+
 ///////////////list만들기
 function list(){
 	$.ajax({
@@ -258,7 +325,60 @@ function list(){
 
 <!-- detail -->
 <div class="detail"></div>
-<!-- 수정폼,,입력폼 복사해서 만들것 -->
 
+<!--수정폼 -->
+<div class="updateform">
+	<form action="#" id="updatefrm"><!-- serialize로 넘기기 위해서는 무조건 id를 form에 넣었어야했음 -->
+		<!-- num 은 hidden으로 넘기기 -->
+		<input type="hidden" name="unum" id="unum">
+		<table class="table table-bordered" style="width:300px;">
+			<caption><b>게시글 수정</b></caption>
+				<tr>
+					<th bgcolor="#fcc">작성자</th>
+					<td>
+						<input type="text" id="uwriter" style="width: 120px;" name="uwriter">
+						<class="form-control input-sm">
+					</td>
+				</tr>
+				
+				<tr>
+					<th bgcolor="#fcc">제목</th>
+					<td>
+						<input type="text" id="usubject" style="width: 200px;" name="usubject">
+						<class="form-control input-sm">
+					</td>
+				</tr>
+				
+				<tr>
+					<th bgcolor="#fcc">아바타</th>
+					<td>
+						<select id="uavata" class="form-control" name="uavata">
+							<option value="../img/3.png">인사</option>
+							<option value="../img/4.png">기쁨</option>
+							<option value="../img/5.png">행복</option>
+							<option value="../img/6.png">즐거움</option>
+							<option value="../img/7.png">귀여움</option>
+						</select>
+					</td>
+				</tr>
+				
+				<tr>
+					<td colspan="2" >
+						<textarea style="width: 300px;" "height: 100px;" id="ucontent" name="ucontent">
+						<class="form-control"></textarea>
+					
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2" align="center">
+						<button type="button" class="btn btn-danger"
+						id="btnupdate">update수정</button>
+					</td>
+				</tr>
+		</table>
+	
+	</form>
+
+</div>
 </body>
 </html>

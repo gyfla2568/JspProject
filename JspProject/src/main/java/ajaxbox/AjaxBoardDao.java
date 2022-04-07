@@ -141,4 +141,32 @@ public class AjaxBoardDao {
 			}
 			
 		}
+		//최종수정
+		public void updateBoard(AjaxboardDto dto)
+		{
+			Connection conn=db.getConnection();
+			PreparedStatement pstmt=null;
+			
+			String sql="update ajaxboard set writer=?,avata=?,subject=?,content=? where num=?";
+			try {
+				pstmt=conn.prepareStatement(sql);
+				
+				//바인딩
+				pstmt.setString(1, dto.getWriter());
+				pstmt.setString(3, dto.getSubject());
+				pstmt.setString(4, dto.getContent());
+				pstmt.setString(2, dto.getAvata());
+				pstmt.setString(5, dto.getNum());
+				
+				//실행
+				pstmt.execute();
+				
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}finally {
+				db.dbClose(pstmt, conn);
+			}
+			
+		}
 }
