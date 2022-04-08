@@ -73,7 +73,7 @@ public class SinsangDao {
 	}
 	
 	//전체출력
-	public Vector<SinsangDto> getAllDatas()
+	public Vector<SinsangDto> getAllDatas() 
 	{
 		Vector<SinsangDto> list=new Vector<SinsangDto>();
 		Connection conn=db.getConnection();
