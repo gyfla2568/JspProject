@@ -19,6 +19,7 @@ public class myDao {
 		Connection conn=db.getConnection();
 		PreparedStatement pstmt=null;
 		
+		
 		String sql="insert into mymem values (null,?,?,?,?,?,?)";
 		
 		try {

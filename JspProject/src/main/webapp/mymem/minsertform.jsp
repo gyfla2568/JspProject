@@ -22,7 +22,7 @@ function goFocus(hp){
 <body>
 <form action="minsertaction.jsp" method="post" name="frm">
 	<table class="table table-bordered" style="width:350px;">
-		<caption><b>MemberList</b></caption>
+		<caption><b>입력폼</b></caption>
 			<tr >
 				<th width="100" bgcolor="#FA8072">회원명</th>
 					<td>

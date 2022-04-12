@@ -24,7 +24,7 @@ Vector<myDto>list=db.getAllDatas();
 <hr>
 
 <table class="table table-bordered" style="width: 500px;">
-	<caption><b>신상정보</b></caption>
+	<caption><b>멤버 리스트</b></caption>
 	<tr bgcolor="pink">
 		<th width="50">No.</th>
 		<th width="150">회원명</th>
