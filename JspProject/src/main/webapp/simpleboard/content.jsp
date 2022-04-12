@@ -50,6 +50,7 @@ SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm");
 				style="max-width: 200px;" >
 				</a>
 				<br><br>
+				
 				<b style="color:gray; font-size: 9pt;">조회 <%=dto.getReadcount() %></b>
 			</td>
 			
