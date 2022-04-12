@@ -118,10 +118,19 @@ function fundel(num) {
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
       </div>
     </div>
   </div>
 </div>
+<script type="text/javascript">
+$("#btnmdel").click(function(){
+	//버튼에 있는 num값 읽어오기
+	var num=$(this).attr("num");
+	//alert(num);
+	
+	//이동
+	location.href="../newmem/deletemember.jsp?num="+num;
+});
+</script>
 </body>
 </html>

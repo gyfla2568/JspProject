@@ -185,7 +185,7 @@ public class NewmemDao {
 				dto.setMid(rs.getString("mid"));
 				dto.setName(rs.getString("name"));
 				dto.setHp(rs.getString("hp"));
-				dto.setPhoto(rs.getString("phto"));
+				dto.setPhoto(rs.getString("photo"));
 				dto.setGaip(rs.getTimestamp("gaip"));
 			}
 		} catch (SQLException e) {
@@ -210,7 +210,7 @@ public class NewmemDao {
 			pstmt=conn.prepareStatement(sql);
 			
 			pstmt.setString(1, dto.getName());
-			pstmt.setString(1, dto.getHp());	
+			pstmt.setString(2, dto.getHp());	
 			pstmt.setString(3, dto.getPhoto());
 			pstmt.setString(4, dto.getNum());
 			
