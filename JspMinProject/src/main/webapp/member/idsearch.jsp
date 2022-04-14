@@ -74,6 +74,7 @@ function goBack(id)
 {
 	//폼안에 있는 아이디값을 보내고 
 	opener.mfrm.id.value=id;	
+	window.close();
 }
 </script>
 </body>

@@ -15,7 +15,7 @@
 <div style="font-size: 12pt; line-height: 25pt;">
 	<span class="glyphicon glyphicon-user">쌍용교육센터</span><br>
 	<span class="glyphicon glyphicon-volume-up">02-222-3333</span><br>
-	<span class="glyphicon glyphicon-home">서울 강남구 역삼대로 교보타워</span><br>
+	<span class="glyphicon glyphicon-home">서울 강남구 <br> 역삼대로 교보타워</span><br>
 	<span class="glyphicon glyphicon-tag">sist@naver.com</span><br>
 	<span class="glyphicon glyphicon-barcode" style="font-size: 20px;"></span>
 </div>

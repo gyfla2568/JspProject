@@ -13,7 +13,6 @@
 img.mainimg{
 	width: 250px;
 	height: 160px;
-	border: 1px solid gray;
 }
 table.maintb{width: 700px;}
 table.maintb tr{

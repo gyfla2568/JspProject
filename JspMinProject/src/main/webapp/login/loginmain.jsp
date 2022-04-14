@@ -12,6 +12,17 @@
 
 </head>
 <body>
+<%
+String loginok=(String)session.getAttribute("loginok");
 
+if(loginok==null||loginok.equals(""))
+{%>
+	<jsp:include page="loginform.jsp">
+	
+<%}else
+{%>
+	<jsp:include page="logoutform.jsp">
+
+<%}%>
 </body>
 </html>

@@ -36,7 +36,7 @@ div.info{
 	font-family: 'Dokdo';
 	top:300px;
 	padding: 20px 10px;
-	border: 5px groove pink;
+	border: 5px groove black;
 	border-radius: 30px;
 	left:20px;
 }

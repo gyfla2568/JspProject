@@ -12,6 +12,12 @@
 
 </head>
 <body>
+<%
+//로그인에 대한 세션값 삭제
+session.removeAttribute("myid");
 
+//로그인메인으로 이동..항상 메인통해 이동하게..
+response.sendRedirect("loginmain.jsp");
+%>
 </body>
 </html>

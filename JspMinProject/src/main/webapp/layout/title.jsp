@@ -16,7 +16,7 @@ String root=request.getContextPath();
 %>
 <body>
 <a href="<%=root%>/">
-	<img alt="" src="<%=root%>/image/title.png">
+	<img alt="" src="<%=root%>/image/sstitle.PNG">
 
 </a>
 </body>

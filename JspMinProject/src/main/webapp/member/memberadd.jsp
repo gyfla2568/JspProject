@@ -22,7 +22,8 @@ String id=request.getParameter("id");
 String pass=request.getParameter("pass");
 String hp=request.getParameter("hp");
 String addr=request.getParameter("addr");
-String email=request.getParameter("email")+"@"+request.getRealPath("email2");
+String email=request.getParameter("email1")+"@"+request.getParameter("email2");
+
 
 dto.setName(name);
 dto.setId(id);
@@ -30,7 +31,6 @@ dto.setPass(pass);
 dto.setHp(hp);
 dto.setAddr(addr);
 dto.setEmail(email);
-
 MemberDao dao=new MemberDao();
 dao.insertMember(dto);
 
