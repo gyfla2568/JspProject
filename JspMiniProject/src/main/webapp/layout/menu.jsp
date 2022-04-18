@@ -63,7 +63,7 @@
 							</li>
 						</ul>
 					</li>
-					<li><a href="index.jsp?main=login/loginmain.jsp">로그인</a></li>
+					<li><a href="index.jsp?main=login/loginmain.jsp">Login</a></li>
 					<li class="parent">
 						<a href="#">Board</a>
 						<ul class="sub-menu">
@@ -74,7 +74,12 @@
 							<li><a href="#">Single Post</a></li>
 						</ul>
 					</li>
-					<li><a href="#">Contact</a></li>
+					<li><a href="#">Shop</a>
+					<ul class="sub-menu">
+							<li><a href="index.jsp?main=shop/addform.jsp">상품등록</a></li>
+							<li><a href="index.jsp?main=shop/shoplist.jsp">쇼핑몰</a></li>							
+						</ul>
+					</li>
 				</ul>
 			</nav>
 			<div class="clear"></div>
