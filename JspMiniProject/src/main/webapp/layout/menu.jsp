@@ -36,6 +36,10 @@
 	<script type="text/javascript" src="menu/js/function.js"></script>
 
 </head>
+<%
+String loginok=(String)session.getAttribute("loginok");
+String myid=(String)session.getAttribute("myid");
+%>
 <body>
 
 <div id="wrap">
@@ -55,6 +59,13 @@
 							<li>
 								<a class="parent" href="#"><i class="icon-file-alt"></i> Pages</a>
 								<ul class="sub-menu">
+								<%
+								if(loginok!=null&&myid.equals("admin")){%>
+									<li><a href="index.jsp?main=shop/addform.jsp">상품등록</a></li>
+								<%}else{%>
+									<li><a href="index.jsp?main=shop/shoplist.jsp">쇼핑몰</a></li>
+								<%}
+								%>
 									<li><a href="#">Full Width</a></li>
 									<li><a href="#">Left Sidebar</a></li>
 									<li><a href="#">Right Sidebar</a></li>

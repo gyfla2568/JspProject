@@ -1,3 +1,7 @@
+<%@page import="com.oreilly.servlet.multipart.DefaultFileRenamePolicy"%>
+<%@page import="com.oreilly.servlet.MultipartRequest"%>
+<%@page import="data.dao.ShopDao"%>
+<%@page import="data.dto.ShopDto"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -12,6 +16,47 @@
 
 </head>
 <body>
+<%
 
+
+//실제경로
+String realPath=getServletContext().getRealPath("/shopsave");
+System.out.println(realPath);
+
+int uploadSize=1024*1024*2;
+
+MultipartRequest multi=null;
+
+try{
+multi=new MultipartRequest(request,realPath,uploadSize,"utf-8",
+		new DefaultFileRenamePolicy());
+
+//request아니고 multi로 모든 폼데이터 읽어온다
+String sangpum=multi.getParameter("sangpum");
+String category=multi.getParameter("category");
+String ipgoday=multi.getParameter("ipgoday");
+int price=Integer.parseInt(multi.getParameter("price"));
+String photo=multi.getFilesystemName("photo"); 
+//dto에 저장
+ShopDto dto=new ShopDto();
+dto.setSangpum(sangpum);
+dto.setCategory(category);
+dto.setIpgoday(ipgoday);
+dto.setPhoto(photo);
+dto.setPrice(price);
+
+
+//dao선언
+ShopDao dao=new ShopDao();
+//insert
+dao.insertShop(dto);
+
+//상품등록
+response.sendRedirect("../index.jsp?main=shop/addform.jsp");
+
+}catch(Exception e){
+	
+}
+%>
 </body>
 </html>

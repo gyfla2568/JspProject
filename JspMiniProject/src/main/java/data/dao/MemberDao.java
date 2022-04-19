@@ -283,5 +283,32 @@ public class MemberDao {
 				
 		return b;
 	}
-	
+	//장바구니 담을때 멤버테이블의 num을 넣어야하는데 세션에 id가 있으므로 num을 얻는 메소드를 추가한다.
+		public String getNum(String id)
+		{
+			String num="";
+			
+			Connection conn=db.getConnection();
+			PreparedStatement pstmt=null;
+			ResultSet rs=null;
+			
+			String sql="select num from member where id=?";
+			
+			try {
+				pstmt=conn.prepareStatement(sql);
+				pstmt.setString(1, id);
+				rs=pstmt.executeQuery();
+				
+				if(rs.next())
+					num=rs.getString("num");
+				
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}finally {
+				db.dbClose(rs, pstmt, conn);
+			}
+			
+			return num;
+		}
 }
