@@ -11,7 +11,7 @@
 </head>
 <body>
 <div style="font-size: 12pt; line-height: 25px;">
-  <span class="glyphicon glyphicon-user">쌍용교육센터</span><br>
+  <span class="glyphicon glyphicon-user">당근마켓</span><br>
   <span class="glyphicon glyphicon-print">02-234-4567</span><br>
   <span class="glyphicon glyphicon-home">서울 강남구 한독B.8F</span><br>
   <span class="glyphicon glyphicon-tag">sist@naver.com</span><br><br>

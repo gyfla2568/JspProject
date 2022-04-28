@@ -18,7 +18,7 @@
 //num,pass
 String num=request.getParameter("num");
 String pass=request.getParameter("pass");
-
+ 
 SimpleDao db=new SimpleDao();
 boolean b=db.isEqualPass(num, pass);
 

@@ -79,7 +79,7 @@ String myid=(String)session.getAttribute("myid");
 						<a href="#">Board</a>
 						<ul class="sub-menu">
 							<li><a href="index.jsp?main=guest/guestlist.jsp">회원방명록</a></li>
-							<li><a href="#">Medium Image</a></li>
+							<li><a href="index.jsp?main=board/boardlist.jsp">스마트게시판</a></li>
 							<li><a href="#">Masonry</a></li>
 							<li><a href="#">Double Sidebar</a></li>
 							<li><a href="#">Single Post</a></li>

@@ -1,6 +1,6 @@
 <%@page import="java.text.SimpleDateFormat"%>
-<%@page import="simpleboard.SimpleDto"%>
-<%@page import="simpleboard.SimpleDao"%>
+<%@page import="data.dao.SmartDao"%>
+<%@page import="data.dto.SmartDto"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -12,18 +12,18 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
-</head>
 <%
 String num=request.getParameter("num");
-SimpleDao dao=new SimpleDao();
+SmartDao dao=new SmartDao();
 //조회수증가
 dao.updateReadCount(num);
 //데이터 가져오기
-SimpleDto dto=dao.getData(num);
+SmartDto dto=dao.getData(num);
 
 SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm");
 %>
+</head>
+<body>
 <body>
 <table class="table table-condensed" style="width: 650px;">
 	<caption><b>내용보기</b></caption>
@@ -32,8 +32,9 @@ SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm");
 			<b><%=dto.getSubject() %></b>
 			</td>
 			<td>
-				<span style="color:gray; font-size: 9pt;">
-				<%=sdf.format(dto.getWriteday()) %></span>
+				<span style="color:gray; font-size: 11pt;">
+				<%=sdf.format(dto.getWriteday()) %>
+				&nbsp;&nbsp;조회<%=dto.getReadcount() %></span>
 			</td>
 		</tr>
 		<tr>
@@ -43,28 +44,21 @@ SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm");
 				<br><br>
 				<%=dto.getContent().replace("\n","<br>") %>
 				<br><br>
-				<!-- 이미지 클릭하면 새창에 원래 사이즈로 보기 -->
-				<a href="../photo/<%=dto.getImgname()%>" 
-				target="_blank">
-				
-				</a>
-				<br><br>
-				
-				<b style="color:gray; font-size: 9pt;">조회 <%=dto.getReadcount() %></b>
-			</td>
+				</td>
 			
 		</tr>
 		</table>
 		
 		<div style="margin-left: 400px;">
 			<button type="button" class="btn btn-default"
-			onclick="location.href='boardform.jsp'">글쓰기</button>
+			onclick="location.href='undex.jsp?main=board/smartform.jsp'">글쓰기</button>
 			<button type="button" class="btn btn-default"
-			onclick="location.href='boardlist.jsp'">목록</button>
+			onclick="location.href='undex.jsp?main=board/boardlist.jsp'">목록</button>
 			<button type="button" class="btn btn-default"
-			onclick="location.href='updateform.jsp?num=<%=dto.getNum()%>'">수정</button>
+			onclick="location.href=''">수정</button>
 			<button type="button" class="btn btn-default"
-			onclick="location.href='deleteform.jsp?num=<%=dto.getNum()%>'">삭제</button>
+			onclick="location.href=''">삭제</button>
 		</div>
+</body>
 </body>
 </html>

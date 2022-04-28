@@ -39,7 +39,8 @@ multi=new MultipartRequest(request,realFolder,uploadSize,"utf-8",
 	
 	//실제 업로드 이미지 이름 읽어오기
 	String imgname=multi.getFilesystemName("photo");
-	
+
+
 	//dto에 담기
 	SimpleDto dto=new SimpleDto();
 	
